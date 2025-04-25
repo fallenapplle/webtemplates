@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Blog - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
+
+    <!-- 🧭 Navbar -->
+    <header class="bg-white dark:bg-gray-800 shadow px-6 py-4 flex justify-between items-center sticky top-0 z-50">
+        <h1 class="text-xl font-bold text-indigo-600 dark:text-indigo-400">YourBlog</h1>
+        <nav class="space-x-4 text-sm sm:text-base">
+            <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Home</a>
+            <a href="#posts" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Posts</a>
+            <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">About</a>
+            <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Contact</a>
+        </nav>
+    </header>
+
+    <!-- ✨ Hero Section -->
+    <section class="text-center py-20 px-4 bg-indigo-50 dark:bg-indigo-900">
+        <h2 class="text-4xl sm:text-5xl font-bold mb-4">Welcome to Your Blog</h2>
+        <p class="text-lg text-gray-700 dark:text-gray-200">Sharing thoughts, tutorials, and stories worth telling.</p>
+    </section>
+
+    <!-- 📰 Blog Posts -->
+    <section id="posts" class="py-16 px-4 sm:px-6 max-w-6xl mx-auto">
+        <h3 class="text-3xl font-bold mb-10 text-center">Latest Posts</h3>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Post 1 -->
+            <article class="bg-white dark:bg-gray-800 rounded-lg shadow p-5">
+                <img src="img/blog1.jpeg" alt="Post 1" class="rounded mb-4 w-full">
+                <h4 class="text-xl font-semibold mb-2">How I Started Freelancing</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">March 22, 2025</p>
+                <p class="mb-4">A short journey from beginner to full-time freelancer in the tech space...</p>
+                <a href="#" class="text-indigo-600 dark:text-indigo-400 font-semibold">Read more →</a>
+            </article>
+
+            <!-- Post 2 -->
+            <article class="bg-white dark:bg-gray-800 rounded-lg shadow p-5">
+                <img src="img/blog2.jpeg" alt="Post 2" class="rounded mb-4 w-full">
+                <h4 class="text-xl font-semibold mb-2">Top 5 HTML Tips for Beginners</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">March 18, 2025</p>
+                <p class="mb-4">HTML5 is powerful and clean. Here are my favorite tips and tricks for beginners...</p>
+                <a href="#" class="text-indigo-600 dark:text-indigo-400 font-semibold">Read more →</a>
+            </article>
+
+            <!-- Post 3 -->
+            <article class="bg-white dark:bg-gray-800 rounded-lg shadow p-5">
+                <img src="img/project1.jpg" alt="Post 3" class="rounded mb-4 w-full">
+                <h4 class="text-xl font-semibold mb-2">Designing for Mobile First</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">March 12, 2025</p>
+                <p class="mb-4">Tips on how to build clean, responsive websites that look great on all devices.</p>
+                <a href="#" class="text-indigo-600 dark:text-indigo-400 font-semibold">Read more →</a>
+            </article>
+        </div>
+    </section>
+
+    <!-- 📘 About Section -->
+    <section id="about" class="py-16 px-4 sm:px-6 max-w-3xl mx-auto text-center">
+        <h3 class="text-3xl font-bold mb-6">About This Blog</h3>
+        <p class="leading-7 text-gray-700 dark:text-gray-300">
+            This blog is a space to share ideas, tutorials, and experiences in tech, design, and development. Whether you're a beginner or an expert, you’ll find something here to learn or get inspired by.
+        </p>
+    </section>
+
+    <!-- 📬 Contact Section -->
+    <section id="contact" class="py-16 px-4 sm:px-6 max-w-2xl mx-auto text-center">
+        <h3 class="text-3xl font-bold mb-6">Contact Me</h3>
+        <form class="space-y-4">
+            <input type="text" placeholder="Your Name" class="w-full border border-gray-300 dark:border-gray-700 rounded px-4 py-2 bg-white dark:bg-gray-800 text-black dark:text-white" />
+            <input type="email" placeholder="Your Email" class="w-full border border-gray-300 dark:border-gray-700 rounded px-4 py-2 bg-white dark:bg-gray-800 text-black dark:text-white" />
+            <textarea placeholder="Your Message" class="w-full border border-gray-300 dark:border-gray-700 rounded px-4 py-2 bg-white dark:bg-gray-800 text-black dark:text-white"></textarea>
+            <button type="submit" class="bg-indigo-600 text-white px-6 py-3 rounded hover:bg-indigo-700 dark:hover:bg-indigo-500 transition">Send</button>
+        </form>
+    </section>
+
+    <!-- 📌 Footer -->
+    <footer class="bg-gray-900 text-white py-6 text-center">
+        <p>&copy; 2025 fallenblog. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

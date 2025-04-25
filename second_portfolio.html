@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>fallenapple | Frontend Developer & UI Designer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <style>
+         :root {
+            --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+            --avatar-size: 180px;
+        }
+        
+        .avatar-ring {
+            width: var(--avatar-size);
+            height: var(--avatar-size);
+            border: 4px solid #e0e7ff;
+            animation: avatar-float 6s ease-in-out infinite;
+        }
+        
+        @keyframes avatar-float {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            perspective: 1000px;
+        }
+        
+        .project-card:hover .project-image {
+            transform: translateZ(20px);
+        }
+        
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: #e0e7ff;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: var(--primary-gradient);
+            transition: width 0.8s ease;
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+    <!-- 🎯 Sticky Header -->
+    <header class="sticky top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#" class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">fallenapple</a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 dark:text-gray-300">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden fixed inset-y-0 right-0 w-64 bg-white dark:bg-gray-800 shadow-lg p-6">
+            <nav class="flex flex-col space-y-4">
+                <a href="#about" class="nav-link-mobile">About</a>
+                <a href="#projects" class="nav-link-mobile">Projects</a>
+                <a href="#contact" class="nav-link-mobile">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 🌟 Hero Section -->
+    <section class="relative pt-24 pb-32 overflow-hidden">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="avatar-ring rounded-full mx-auto mb-8 overflow-hidden border-4 border-indigo-100 dark:border-gray-700">
+                <img src="img/fallenapple.jpeg" alt="fallenapple" class="w-full h-full object-cover" loading="eager" width="180" height="180">
+            </div>
+
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                Frontend Developer & UI Designer
+            </h1>
+
+            <div class="max-w-2xl mx-auto">
+                <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
+                    Creating digital experiences that combine aesthetics with functionality
+                </p>
+
+                <div class="flex justify-center space-x-6">
+                    <a href="#projects" class="btn-primary">
+                        <i class="fas fa-code-branch mr-2"></i> View Projects
+                    </a>
+                    <a href="#contact" class="btn-secondary">
+                        <i class="fas fa-paper-plane mr-2"></i> Hire Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📚 Skills & About -->
+    <section id="about" class="py-16 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-bold mb-6">Technical Expertise</h2>
+                    <div class="space-y-4">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span>HTML5 & CSS3</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress w-95%"></div>
+                            </div>
+                        </div>
+                        <!-- Add more skills -->
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold">About Me</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        Full-stack leaning frontend developer with 5+ years experience crafting digital experiences. Specializing in React ecosystem and design systems. Passionate about performance optimization and accessible web applications.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-indigo-600 mr-2"></i>
+                            <span>San Francisco, CA</span>
+                        </div>
+                        <!-- Add more info -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🚀 Projects Section -->
+    <section id="projects" class="py-16 bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Featured Projects</h2>
+
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Project 1 -->
+                <article class="project-card group bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+                    <div class="relative overflow-hidden">
+                        <img src="img/ecommerce.jpg" alt="E-Commerce Platform" class="project-image w-full h-48 object-cover transition-transform duration-300" loading="lazy" width="400" height="300">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-semibold">E-Commerce Platform</h3>
+                            <div class="flex space-x-2">
+                                <i class="fab fa-react text-blue-500"></i>
+                                <i class="fab fa-node-js text-green-500"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Full-stack e-commerce solution with Next.js and Node.js
+                        </p>
+                        <a href="#" class="btn-secondary">
+                            Case Study <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="project-card group bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+                    <div class="relative overflow-hidden">
+                        <img src="img/dashboard.jpeg" alt="Analytics Dashboard" class="project-image w-full h-48 object-cover transition-transform duration-300" loading="lazy" width="400" height="300">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-semibold">Analytics Dashboard</h3>
+                            <div class="flex space-x-2">
+                                <i class="fab fa-vuejs text-green-500"></i>
+                                <i class="fas fa-chart-line text-purple-500"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Real-time data visualization dashboard with Vue.js and D3.js
+                        </p>
+                        <a href="#" class="btn-secondary">
+                            Case Study <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Mobile App -->
+                <article class="project-card group bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+                    <div class="relative overflow-hidden">
+                        <img src="img/mobileapp.jpeg" alt="Fitness Mobile App" class="project-image w-full h-48 object-cover transition-transform duration-300" loading="lazy" width="400" height="300">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-semibold">Fitness Mobile App</h3>
+                            <div class="flex space-x-2">
+                                <i class="fab fa-react-native text-blue-400"></i>
+                                <i class="fas fa-mobile-alt text-pink-500"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Cross-platform fitness tracking app with React Native and Firebase
+                        </p>
+                        <a href="#" class="btn-secondary">
+                            Case Study <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 📬 Contact Section -->
+    <section id="contact" class="py-16 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Let's Connect</h2>
+                <p class="text-gray-600 dark:text-gray-300">Have a project in mind? Let's make it reality</p>
+            </div>
+
+            <form class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="input-label">Full Name</label>
+                        <input type="text" required class="input-field">
+                    </div>
+                    <div>
+                        <label class="input-label">Email Address</label>
+                        <input type="email" required class="input-field">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="input-label">Project Details</label>
+                    <textarea rows="5" required class="input-field"></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary w-full">
+                    Send Message <i class="fas fa-paper-plane ml-2"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 🏁 Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h4 class="text-white font-bold mb-4">fallenapple</h4>
+                    <p class="text-sm">Building digital experiences that make an impact</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Navigation</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#about" class="footer-link">About</a></li>
+                        <li><a href="#projects" class="footer-link">Projects</a></li>
+                        <li><a href="#contact" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Connect</h4>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm">
+                <p>&copy; 2025 fallenapple. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.project-card').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>

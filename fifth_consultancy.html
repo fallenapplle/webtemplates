@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PrimeConsult Dark</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Swiper Carousel -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        /* Preloader */
+        
+        #preloader {
+            position: fixed;
+            inset: 0;
+            background: #0f0f0f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 50;
+        }
+        
+        .spin {
+            border: 4px solid #1a1a1a;
+            border-top: 4px solid #4f46e5;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-gray-100" x-data="scrollspy()" x-init="init()">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spin"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-gray-800 shadow fixed w-full z-20">
+        <div class="max-w-7xl mx-auto flex justify-between items-center p-6">
+            <h1 class="text-2xl font-bold text-indigo-400">PrimeConsult</h1>
+            <nav class="hidden md:flex space-x-6" id="navbar">
+                <a href="#" :class="{ 'text-indigo-300': active === 'home' }" class="hover:text-indigo-400" data-target="home">Home</a>
+                <a href="#services" :class="{ 'text-indigo-300': active === 'services' }" class="hover:text-indigo-400" data-target="services">Services</a>
+                <a href="#about" :class="{ 'text-indigo-300': active === 'about' }" class="hover:text-indigo-400" data-target="about">About</a>
+                <a href="#testimonials" :class="{ 'text-indigo-300': active === 'testimonials' }" class="hover:text-indigo-400" data-target="testimonials">Testimonials</a>
+                <a href="#contact" :class="{ 'text-indigo-300': active === 'contact' }" class="hover:text-indigo-400" data-target="contact">Contact</a>
+            </nav>
+            <div class="md:hidden" x-data="{ open: false }">
+                <button @click="open = !open" class="p-2 rounded bg-gray-700 hover:bg-gray-600 transition">
+          <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+          </svg>
+          <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+                <div x-show="open" x-transition class="bg-gray-800 mt-2 space-y-2 p-4 rounded shadow">
+                    <template x-for="item in sections">
+            <a :href="`#${item}`" class="block hover:text-indigo-400 text-gray-200" x-text="item.charAt(0).toUpperCase()+item.slice(1)"></a>
+          </template>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <!-- Hero -->
+        <section id="home" class="bg-gradient-to-b from-gray-900 to-gray-800 py-20 text-center" data-aos="fade-up">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-indigo-300">Expert Consulting for Your Business</h2>
+            <p class="text-lg md:text-xl mb-6 max-w-2xl mx-auto px-4">Helping companies scale smarter through expert business and digital strategy consulting.</p>
+            <a href="#contact" class="inline-block bg-gradient-to-r from-indigo-600 to-indigo-800 text-white px-8 py-3 rounded-full hover:from-indigo-700 hover:to-indigo-900 transition shadow-lg">Schedule a Call</a>
+        </section>
+
+        <!-- Services -->
+        <section id="services" class="py-16 max-w-6xl mx-auto px-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="text-3xl font-bold text-center mb-12 text-gray-100">Our Services</h3>
+            <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <template x-for="(service, idx) in ['Business Strategy', 'Financial Consulting', 'Tech Advisory']" :key="idx">
+          <div class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1" data-aos="zoom-in" :data-aos-delay="100*idx">
+            <h4 class="text-xl font-semibold mb-2 text-indigo-200" x-text="service"></h4>
+            <p class="text-gray-400">{{ descriptions[idx] }}</p>
+          </div>
+        </template>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="py-16 bg-gray-800 px-6 max-w-6xl mx-auto text-center" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="text-3xl font-bold mb-6 text-gray-100">Why Choose PrimeConsult</h3>
+            <p class="text-gray-400 max-w-3xl mx-auto px-4">With 10+ years of industry experience and a team of dedicated experts, we’ve helped startups, SMEs, and large enterprises unlock their full potential through strategic and data-backed consulting services.</p>
+        </section>
+
+        <!-- Testimonials -->
+        <section id="testimonials" class="py-16 bg-gray-900 px-6" data-aos="fade-up" data-aos-delay="300">
+            <h3 class="text-3xl font-bold text-center mb-8 text-indigo-300">What Our Clients Say</h3>
+            <div class="swiper-container max-w-4xl mx-auto">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide p-6 bg-gray-800 rounded-2xl shadow-lg">
+                        <p class="italic mb-4 text-gray-200">“PrimeConsult’s guidance transformed our business trajectory. Revenue grew 200%!”</p>
+                        <h4 class="font-semibold text-gray-100">— Alex Johnson, CEO of TechStart</h4>
+                    </div>
+                    <div class="swiper-slide p-6 bg-gray-800 rounded-2xl shadow-lg">
+                        <p class="italic mb-4 text-gray-200">“Their financial strategies saved us thousands and improved cash flow predictability.”</p>
+                        <h4 class="font-semibold text-gray-100">— Maria Gomez, CFO of RetailCo</h4>
+                    </div>
+                    <div class="swiper-slide p-6 bg-gray-800 rounded-2xl shadow-lg">
+                        <p class="italic mb-4 text-gray-200">“Expert tech advisory that modernized our stack and boosted team productivity.”</p>
+                        <h4 class="font-semibold text-gray-100">— Li Wei, CTO of FinTechPlus</h4>
+                    </div>
+                </div>
+                <div class="swiper-pagination mt-4"></div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="bg-gray-800 py-16 px-6 text-center" data-aos="fade-up" data-aos-delay="400">
+            <h3 class="text-3xl font-bold mb-6 text-gray-100">Get in Touch</h3>
+            <form class="max-w-xl mx-auto space-y-6" novalidate @submit.prevent="handleSubmit($event)">
+                <div class="relative">
+                    <input type="text" name="name" placeholder=" " required class="peer w-full px-4 py-3 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-900 text-gray-100" />
+                    <label class="absolute left-4 top-3 text-gray-500 peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-focus:-top-4 peer-focus:text-sm transition">Your Name</label>
+                    <div class="invalid-feedback text-red-500 text-sm mt-1">Name is required.</div>
+                </div>
+                <div class="relative">
+                    <input type="email" name="email" placeholder=" " required class="peer w-full px-4 py-3 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-900 text-gray-100" />
+                    <label class="absolute left-4 top-3 text-gray-500 peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-focus:-top-4 peer-focus:text-sm transition">Your Email</label>
+                    <div class="invalid-feedback text-red-500 text-sm mt-1">Valid email is required.</div>
+                </div>
+                <div class="relative">
+                    <textarea name="message" placeholder=" " required rows="4" class="peer w-full px-4 py-3 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-900 text-gray-100"></textarea>
+                    <label class="absolute left-4 top-3 text-gray-500 peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-focus:-top-4 peer-focus:text-sm transition">Your Message</label>
+                    <div class="invalid-feedback text-red-500 text-sm mt-1">Message cannot be empty.</div>
+                </div>
+                <button type="submit" class="bg-gradient-to-r from-indigo-600 to-indigo-800 text-white px-8 py-3 rounded-full hover:from-indigo-700 hover:to-indigo-900 transition shadow-lg">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 text-center py-10">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div>
+                <h4 class="font-bold mb-2 text-gray-100">PrimeConsult</h4>
+                <p>Strategic consulting for modern businesses.</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-2 text-gray-100">Quick Links</h4>
+                <ul class="space-y-1">
+                    <li><a href="#services" class="hover:underline text-gray-300">Services</a></li>
+                    <li><a href="#about" class="hover:underline text-gray-300">About</a></li>
+                    <li><a href="#contact" class="hover:underline text-gray-300">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-2 text-gray-100">Follow Us</h4>
+                <div class="flex justify-center space-x-4">
+                    <a href="#" aria-label="Twitter"><svg class="h-6 w-6 text-gray-300" fill="currentColor" viewBox="0 0 24 24"><path d="M..."/></svg></a>
+                    <a href="#" aria-label="LinkedIn"><svg class="h-6 w-6 text-gray-300" fill="currentColor" viewBox="0 0 24 24"><path d="M..."/></svg></a>
+                    <a href="#" aria-label="Facebook"><svg class="h-6 w-6 text-gray-300" fill="currentColor" viewBox="0 0 24 24"><path d="M..."/></svg></a>
+                </div>
+            </div>
+        </div>
+        <p class="mt-6 text-sm">&copy; 2025 PrimeConsult. All rights reserved.</p>
+    </footer>
+
+    <!-- Back to Top -->
+    <a href="#home" class="fixed bottom-6 right-6 p-3 rounded-full bg-indigo-600 text-white shadow-lg hover:bg-indigo-700 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+    </svg>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        // Hide preloader
+        window.addEventListener('load', () => document.getElementById('preloader').style.display = 'none');
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+        // Initialize Swiper
+        new Swiper('.swiper-container', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            },
+            autoplay: {
+                delay: 5000
+            }
+        });
+        // Scrollspy Alpine
+        function scrollspy() {
+            return {
+                active: 'home',
+                sections: ['home', 'services', 'about', 'testimonials', 'contact'],
+                init() {
+                    const obs = new IntersectionObserver(entries => {
+                        entries.forEach(e => {
+                            if (e.isIntersecting) this.active = e.target.id;
+                        });
+                    }, {
+                        threshold: 0.6
+                    });
+                    this.sections.forEach(id => obs.observe(document.getElementById(id)));
+                }
+            }
+        }
+        // Form submit handler
+        function handleSubmit(e) {
+            const form = e.target;
+            if (!form.checkValidity()) {
+                form.classList.add('was-validated');
+                return;
+            }
+            alert('Thank you for your message!');
+            form.reset();
+        }
+    </script>
+</body>
+
+</html>

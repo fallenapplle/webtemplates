@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Business Landing Page | YourBrand</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Styles with Mobile-First Approach -->
+    <style>
+         :root {
+            --fluid-text: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+            --fluid-heading: clamp(2rem, 1.79vw + 1.52rem, 3rem);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            font-size: var(--fluid-text);
+            line-height: 1.6;
+        }
+        
+        h2,
+        h3 {
+            font-size: var(--fluid-heading);
+            line-height: 1.2;
+        }
+        
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        @media (pointer: coarse) {
+            button,
+            a {
+                min-width: 48px;
+                min-height: 48px;
+            }
+        }
+        
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        @media (max-width: 768px) {
+            .parallax-bg {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800">
+    <!-- 🌟 Enhanced Navbar -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#" class="text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors">YourBrand</a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex space-x-8">
+                    <a href="#services" class="text-gray-600 hover:text-blue-500 px-3 py-2 rounded-md transition-colors">Services</a>
+                    <a href="#testimonials" class="text-gray-600 hover:text-blue-500 px-3 py-2 rounded-md transition-colors">Testimonials</a>
+                    <a href="#contact" class="text-gray-600 hover:text-blue-500 px-3 py-2 rounded-md transition-colors">Contact</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="lg:hidden p-2 rounded-md text-gray-600 hover:text-blue-500">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu lg:hidden fixed inset-y-0 right-0 w-64 bg-white shadow-lg p-6">
+            <nav class="flex flex-col space-y-4">
+                <a href="#services" class="text-gray-600 hover:text-blue-500 py-2">Services</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-blue-500 py-2">Testimonials</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-500 py-2">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 💥 Enhanced Hero Section -->
+    <section class="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+        <div class="parallax-bg absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-95"></div>
+
+        <div class="relative container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                    Transform Your Business Growth Strategy
+                </h2>
+                <p class="text-lg text-blue-100 mb-8 md:mb-12 max-w-2xl mx-auto">
+                    Leverage our cutting-edge solutions to accelerate your company's digital transformation
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#contact" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-opacity-90 transition-all shadow-lg">
+                        Start Free Trial
+                    </a>
+                    <a href="#services" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all">
+                        Explore Solutions
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🚀 Enhanced Services Section -->
+    <section id="services" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-center font-bold mb-12 md:mb-16">Our Comprehensive Services</h3>
+
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Web Development Card -->
+                <div class="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                    <div class="p-6 md:p-8">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-code text-blue-600 text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-3">Web Development</h4>
+                        <p class="text-gray-600 mb-4">High-performance websites with modern architecture and best practices</p>
+                        <ul class="space-y-2 text-sm text-gray-500">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i> Responsive Design
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i> Progressive Web Apps
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i> API Integration
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SEO Optimization Card -->
+                <div class="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                    <div class="p-6 md:p-8">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-chart-line text-green-600 text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-3">SEO Optimization</h4>
+                        <p class="text-gray-600 mb-4">Data-driven SEO strategies for sustainable organic growth</p>
+                        <ul class="space-y-2 text-sm text-gray-500">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i> Keyword Research
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i> Technical SEO Audit
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i> Competitor Analysis
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Digital Marketing Card -->
+                <div class="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                    <div class="p-6 md:p-8">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-bullhorn text-purple-600 text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-3">Digital Marketing</h4>
+                        <p class="text-gray-600 mb-4">Targeted campaigns that convert visitors into customers</p>
+                        <ul class="space-y-2 text-sm text-gray-500">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i> Social Media Management
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i> PPC Advertising
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i> Conversion Rate Optimization
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 👥 Enhanced Testimonials -->
+    <section id="testimonials" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-center font-bold mb-12 md:mb-16">Client Success Stories</h3>
+
+            <div class="grid gap-8 md:grid-cols-2">
+                <!-- Testimonial Card 1 -->
+                <div class="grid gap-8 md:grid-cols-2">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-gray-50 rounded-xl p-6 md:p-8">
+                        <div class="flex items-start mb-4">
+                            <img src="img/sana.jpeg" alt="Sarah Johnson" class="w-12 h-12 rounded-full mr-4 object-cover" loading="lazy" width="48" height="48">
+                            <div>
+                                <p class="font-semibold">Sarah Johnson</p>
+                                <p class="text-sm text-gray-500">CEO, TechStart Inc</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic mb-4">
+                            "Their expertise helped us scale our platform to handle 10x more traffic while improving performance."
+                        </p>
+                        <div class="flex items-center space-x-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="bg-gray-50 rounded-xl p-6 md:p-8">
+                        <div class="flex items-start mb-4">
+                            <img src="img/david.jpeg" alt="Mike Donovan" class="w-12 h-12 rounded-full mr-4 object-cover" loading="lazy" width="48" height="48">
+                            <div>
+                                <p class="font-semibold">Mike Donovan</p>
+                                <p class="text-sm text-gray-500">CMO, Digital Solutions</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic mb-4">
+                            "Our ROI increased by 300% after implementing their marketing strategies. Truly remarkable results!"
+                        </p>
+                        <div class="flex items-center space-x-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-sm text-gray-500">4.8/5</span>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 📬 Enhanced Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl">
+            <div class="bg-white rounded-2xl shadow-lg p-6 md:p-12">
+                <h3 class="text-center font-bold mb-8">Start Your Journey</h3>
+
+                <form class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                        <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                        <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                        <textarea rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center gap-2">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ⚓ Enhanced Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="mb-8 md:mb-0">
+                    <h5 class="text-white font-semibold mb-4">YourBrand</h5>
+                    <p class="text-sm">Empowering businesses through innovative digital solutions</p>
+                </div>
+
+                <div>
+                    <h6 class="text-white font-semibold mb-4">Quick Links</h6>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h6 class="text-white font-semibold mb-4">Legal</h6>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Cookie Policy</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h6 class="text-white font-semibold mb-4">Connect</h6>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-blue-400 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="hover:text-blue-400 transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="hover:text-blue-400 transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm">
+                <p>&copy; 2025 YourBrand. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

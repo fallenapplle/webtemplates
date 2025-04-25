@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Premium Website Templates Collection by Fallenapple">
+    <meta name="keywords" content="website templates, web development, business portfolio">
+    <title>Premium Web Templates | Fallenapple Designs</title>
+
+    <!-- Enhanced Tailwind Integration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': {
+                                opacity: 0,
+                                transform: 'translateY(20px)'
+                            },
+                            '100%': {
+                                opacity: 1,
+                                transform: 'translateY(0)'
+                            }
+                        },
+                        float: {
+                            '0%, 100%': {
+                                transform: 'translateY(0)'
+                            },
+                            '50%': {
+                                transform: 'translateY(-10px)'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
+         :root {
+            --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+            --secondary-gradient: linear-gradient(to bottom right, #dbeafe, #f0f9ff);
+        }
+        
+        body {
+            background: var(--secondary-gradient);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            transition: background 0.3s ease;
+        }
+        
+        .dark body {
+            background: linear-gradient(to bottom right, #1e1b4b, #0f172a);
+        }
+        
+        .template-card {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .template-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: var(--primary-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+        }
+        
+        .template-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .template-card:hover::before {
+            opacity: 0.1;
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0s !important;
+                transition-duration: 0s !important;
+            }
+        }
+    </style>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+</head>
+
+<body class="min-h-screen flex items-center justify-center px-6">
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="fixed top-4 right-4 p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg">
+        <i class="fas fa-sun text-yellow-400 dark:hidden"></i>
+        <i class="fas fa-moon text-gray-200 hidden dark:block"></i>
+    </button>
+
+    <div class="bg-white dark:bg-gray-900 p-10 rounded-3xl shadow-2xl w-full max-w-3xl backdrop-blur-lg bg-opacity-90">
+        <h1 class="text-4xl font-extrabold text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-8 animate-float">
+            🚀 Web Template Samples
+        </h1>
+
+        <p class="text-center text-gray-600 dark:text-gray-300 mb-8 text-lg">
+            Explore our professionally crafted templates featuring modern design and best practices
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-6" data-aos="fade-up">
+            <a href="first_web.html" class="template-card relative bg-blue-100 dark:bg-blue-900/50 hover:bg-blue-200 dark:hover:bg-blue-800 text-blue-800 dark:text-blue-200 font-semibold py-4 px-6 rounded-xl transition-all duration-300 group">
+                <div class="relative z-10 flex items-center justify-center gap-2">
+                    <i class="fas fa-briefcase text-lg"></i>
+                    <span>Business Suite</span>
+                    <i class="fas fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                </div>
+            </a>
+
+            <a href="second_portfolio.html" class="template-card relative bg-green-100 dark:bg-green-900/50 hover:bg-green-200 dark:hover:bg-green-800 text-green-800 dark:text-green-200 font-semibold py-4 px-6 rounded-xl transition-all duration-300 group">
+                <div class="relative z-10 flex items-center justify-center gap-2">
+                    <i class="fas fa-briefcase text-lg"></i>
+                    <span>Portfolio </span>
+                    <i class="fas fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                </div>
+            </a>
+
+
+            <a href="third_blog.html" class="template-card relative bg-pink-100 dark:bg-pink-900/50 hover:bg-pink-200 dark:hover:bg-pink-800 text-blue-800 dark:text-pink-200 font-semibold py-4 px-6 rounded-xl transition-all duration-300 group">
+                <div class="relative z-10 flex items-center justify-center gap-2">
+                    <i class="fas fa-briefcase text-lg"></i>
+                    <span>Blog Site</span>
+                    <i class="fas fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                </div>
+            </a>
+
+
+
+            <a href="fourth_agency.html" class="template-card relative bg-yellow-100 dark:bg-yellow-900/50 hover:bg-yellow-200 dark:hover:bg-yellow-800 text-yellow-800 dark:text-blue-200 font-semibold py-4 px-6 rounded-xl transition-all duration-300 group">
+                <div class="relative z-10 flex items-center justify-center gap-2">
+                    <i class="fas fa-briefcase text-lg"></i>
+                    <span>Agency</span>
+                    <i class="fas fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                </div>
+            </a>
+
+
+            <a href="fifth_consultancy.html" class="template-card relative bg-purple-100 dark:bg-purple-900/50 hover:bg-purple-200 dark:hover:bg-purple-800 text-blue-800 dark:text-purple-200 font-semibold py-4 px-6 rounded-xl transition-all duration-300 group">
+                <div class="relative z-10 flex items-center justify-center gap-2">
+                    <i class="fas fa-briefcase text-lg"></i>
+                    <span>Consultancy</span>
+                    <i class="fas fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                </div>
+            </a>
+
+            <!-- Repeat similar structure for other template cards with appropriate colors -->
+
+        </div>
+
+        <footer class="text-center text-sm text-gray-500 dark:text-gray-400 mt-10 border-t pt-6 border-gray-100 dark:border-gray-800">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://github.com/fallenapplle" class="hover:text-blue-600 transition-colors"><i class="fab fa-github"></i></a>
+                <a href="https://x.com/@fallenapplle" class="hover:text-blue-600 transition-colors"><i class="fab fa-twitter"></i></a>
+            </div>
+            &copy; 2025 Fallenapple Studios •
+            <a href="#" class="hover:text-blue-600 transition-colors">Privacy Policy</a> •
+            <a href="#" class="hover:text-blue-600 transition-colors">Terms of Service</a>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        themeToggle.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            localStorage.theme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+        });
+
+        // Initialize theme
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('[data-aos]').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
